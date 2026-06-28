@@ -1,0 +1,19 @@
+{
+  "PUB Master Case": {
+    "Id": "1-ABC123X",
+    "CMEC Annual Review Date": "2026-06-15",
+    "CMEC Assessed Week GIncome": 1250.5,
+    "CMEC Gross Weekly Income": 1500.0,
+    "CMEC Income Source": "Employment",
+    "CMEC Liability Amount": 200.0,
+    "CMEC Previous Annual Review Date": "2025-06-15",
+    "CMEC Weekly Liability Amount": 50.0,
+    "CMEC Active Cases Count": 1,
+    "CMEC Active Assessed Casses Cour": 1,
+    "CMEC MCase Weekly CC Amt": 75.0,
+    "CMEC Weekly NRP CC for CC Cases": 45.0,
+    "CMEC MCase Full Annual CC Amt": 3900.0,
+    "CMEC Daily NRP CC for CC Cases": 6.43,
+    "CMEC NRP Total Weekly Amount": 45.0
+  }
+}
