@@ -285,8 +285,10 @@ with st.sidebar:
 
     # Model Configuration
     st.markdown("### 🧠 Models")
-    model_summarizer = st.text_input("Case Summarizer Model", value=LLM_MODEL)
-    model_explainer = st.text_input("Calculation Explainer Model", value=LLM_MODEL)
+    model_summarizer_lm = st.text_input("Case Summarizer Model (LM Studio)", value=LLM_MODEL)
+    model_summarizer_qwen = st.text_input("Case Summarizer Model (Qwen 14B)", value="qwen-14b")
+    model_explainer_lm = st.text_input("Calculation Explainer Model (LM Studio)", value=LLM_MODEL)
+    model_explainer_qwen = st.text_input("Calculation Explainer Model (Qwen 14B)", value="qwen-14b")
     model_advisor_lm = st.text_input("Action Advisor Model (LM Studio)", value=LLM_MODEL)
     model_advisor_qwen = st.text_input("Action Advisor Model (Qwen 14B)", value="qwen-14b")
 
@@ -301,8 +303,10 @@ with st.sidebar:
 
     # Agent selection
     st.markdown("### 🤖 Agents")
-    run_summarizer = st.checkbox("📋 Case Summarizer", value=True)
-    run_explainer = st.checkbox("🔢 Calculation Explainer", value=True)
+    run_summarizer_lm = st.checkbox("📋 Case Summarizer (LM Studio)", value=True)
+    run_summarizer_qwen = st.checkbox("📋 Case Summarizer (Qwen 14B)", value=True)
+    run_explainer_lm = st.checkbox("🔢 Calculation Explainer (LM Studio)", value=True)
+    run_explainer_qwen = st.checkbox("🔢 Calculation Explainer (Qwen 14B)", value=True)
     run_advisor_lm = st.checkbox("⚡ Action Advisor (LM Studio)", value=True)
     run_advisor_qwen = st.checkbox("⚡ Action Advisor (Qwen 14B)", value=True)
 
@@ -395,7 +399,8 @@ with main_col:
     st.markdown("### 📂 Case Data Workspace")
 
     # Adding a quick status dashboard to the UI as requested
-    st.markdown('''
+    active_agents_count = sum([run_summarizer_lm, run_summarizer_qwen, run_explainer_lm, run_explainer_qwen, run_advisor_lm, run_advisor_qwen])
+    st.markdown(f'''
     <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
         <div class="metric-card" style="flex: 1;">
             <div class="metric-label">System Status</div>
@@ -403,11 +408,11 @@ with main_col:
         </div>
         <div class="metric-card" style="flex: 1;">
             <div class="metric-label">Active Agents</div>
-            <div class="metric-value">3</div>
+            <div class="metric-value">{active_agents_count}</div>
         </div>
         <div class="metric-card" style="flex: 1;">
             <div class="metric-label">Model Endpoint</div>
-            <div class="metric-value" style="font-size: 1.2rem;">Qwen-14B</div>
+            <div class="metric-value" style="font-size: 1.2rem;">Multi-Model</div>
         </div>
     </div>
     ''', unsafe_allow_html=True)
@@ -512,10 +517,14 @@ with main_col:
 
         # Build agent list
         selected_agents = []
-        if run_summarizer:
-            selected_agents.append("case_summarizer")
-        if run_explainer:
-            selected_agents.append("calculation_explainer")
+        if run_summarizer_lm:
+            selected_agents.append("case_summarizer_lm")
+        if run_summarizer_qwen:
+            selected_agents.append("case_summarizer_qwen")
+        if run_explainer_lm:
+            selected_agents.append("calculation_explainer_lm")
+        if run_explainer_qwen:
+            selected_agents.append("calculation_explainer_qwen")
         if run_advisor_lm:
             selected_agents.append("action_advisor_lm")
         if run_advisor_qwen:
@@ -547,8 +556,10 @@ with main_col:
                     orchestrator = AgentOrchestrator(gateway)
 
                     agent_models = {
-                        "case_summarizer": model_summarizer,
-                        "calculation_explainer": model_explainer,
+                        "case_summarizer_lm": model_summarizer_lm,
+                        "case_summarizer_qwen": model_summarizer_qwen,
+                        "calculation_explainer_lm": model_explainer_lm,
+                        "calculation_explainer_qwen": model_explainer_qwen,
                         "action_advisor_lm": model_advisor_lm,
                         "action_advisor_qwen": model_advisor_qwen,
                     }
@@ -599,17 +610,23 @@ with main_col:
         tab_names = []
         tab_keys = []
 
-        if "case_summarizer" in agent_results:
-            tab_names.append("📋 Case Summary")
-            tab_keys.append("case_summarizer")
-        if "calculation_explainer" in agent_results:
-            tab_names.append("🔢 Calculations")
-            tab_keys.append("calculation_explainer")
+        if "case_summarizer_lm" in agent_results:
+            tab_names.append("📋 Summary (LM)")
+            tab_keys.append("case_summarizer_lm")
+        if "case_summarizer_qwen" in agent_results:
+            tab_names.append("📋 Summary (Qwen)")
+            tab_keys.append("case_summarizer_qwen")
+        if "calculation_explainer_lm" in agent_results:
+            tab_names.append("🔢 Calc (LM)")
+            tab_keys.append("calculation_explainer_lm")
+        if "calculation_explainer_qwen" in agent_results:
+            tab_names.append("🔢 Calc (Qwen)")
+            tab_keys.append("calculation_explainer_qwen")
         if "action_advisor_lm" in agent_results:
-            tab_names.append("⚡ Actions (LM Studio)")
+            tab_names.append("⚡ Actions (LM)")
             tab_keys.append("action_advisor_lm")
         if "action_advisor_qwen" in agent_results:
-            tab_names.append("⚡ Actions (Qwen 14B)")
+            tab_names.append("⚡ Actions (Qwen)")
             tab_keys.append("action_advisor_qwen")
 
         if tab_names:
@@ -625,8 +642,10 @@ with main_col:
                     header_col1, header_col2 = st.columns([3, 1])
                     with header_col1:
                         agent_display_names = {
-                            "case_summarizer": "Case Summarizer Agent",
-                            "calculation_explainer": "Calculation Explainer Agent",
+                            "case_summarizer_lm": "Case Summarizer Agent (LM Studio)",
+                            "case_summarizer_qwen": "Case Summarizer Agent (Qwen 14B)",
+                            "calculation_explainer_lm": "Calculation Explainer Agent (LM Studio)",
+                            "calculation_explainer_qwen": "Calculation Explainer Agent (Qwen 14B)",
                             "action_advisor_lm": "Action Advisor Agent (LM Studio)",
                             "action_advisor_qwen": "Action Advisor Agent (Qwen 14B)",
                         }

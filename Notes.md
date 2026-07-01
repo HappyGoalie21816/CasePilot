@@ -73,6 +73,7 @@ a. Based on Contact Arrears details classify the case if it will be enforcement 
 1. Json structure : find if there are any letters in arrears review sr
     a. complete io structure and data validation wrt to siebel
 
+2. the calculation expert will use a rag functionality to get latest formulae from documents.
 
 
 This is an **excellent, high-value use case** for AI in public sector and case management systems (like Siebel CRM). In complex systems (like Child Maintenance or Social Services), caseworkers frequently lose confidence in automated calculations because they can't trace the logic. They waste hours verifying calculations on scratch paper or Excel, which entirely defeats the purpose of automation.

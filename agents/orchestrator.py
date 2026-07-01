@@ -31,10 +31,12 @@ class AgentOrchestrator:
     def __init__(self, gateway: LLMGateway):
         self.gateway = gateway
         self.agents = {
-            "calculation_explainer": CalculationExplainerAgent(gateway),
+            "calculation_explainer_lm": CalculationExplainerAgent(gateway),
+            "calculation_explainer_qwen": CalculationExplainerAgent(gateway),
             "action_advisor_lm": ActionAdvisorAgent(gateway),
             "action_advisor_qwen": ActionAdvisorAgent(gateway),
-            "case_summarizer": CaseSummarizerAgent(gateway),
+            "case_summarizer_lm": CaseSummarizerAgent(gateway),
+            "case_summarizer_qwen": CaseSummarizerAgent(gateway),
         }
 
     def run_single_agent(self, agent_name: str, case_data: dict, model: Optional[str] = None) -> dict:
