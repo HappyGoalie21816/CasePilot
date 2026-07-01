@@ -1,9 +1,9 @@
 {
   "MasterCase": {
-    "MasterCaseId": 184,
+    "MasterCaseId": "1-184",
     "Cases": [
       {
-        "CaseNumber": 161441234830,
+        "CaseNumber": "1-61441234830",
         "Applicant": "PWC",
         "CaseStage": "Case - Maintenance",
         "CaseStatus": "Active",
@@ -161,7 +161,7 @@
         }
       },
       {
-        "caseNumber": 202401235,
+        "caseNumber": "1-202401235",
         "caseId": "1-CASE002",
         "applicant": "Sarah Louise Johnson",
         "caseStage": "Ongoing",
@@ -245,7 +245,7 @@
       }
     ],
     "id": "1-ABC123X",
-    "masterCaseNumber": 202400567,
+    "masterCaseNumber": "1-202400567",
     "annualReviewDate": "2026-06-15",
     "previousAnnualReviewDate": "2025-06-15",
     "assessedWeeklyGrossIncome": 1250.5,
