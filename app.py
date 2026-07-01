@@ -287,7 +287,8 @@ with st.sidebar:
     st.markdown("### 🧠 Models")
     model_summarizer = st.text_input("Case Summarizer Model", value=LLM_MODEL)
     model_explainer = st.text_input("Calculation Explainer Model", value=LLM_MODEL)
-    model_advisor = st.text_input("Action Advisor Model", value=LLM_MODEL)
+    model_advisor_lm = st.text_input("Action Advisor Model (LM Studio)", value=LLM_MODEL)
+    model_advisor_qwen = st.text_input("Action Advisor Model (Qwen 14B)", value="qwen-14b")
 
     st.markdown(f"""
     <div class="info-box">
@@ -302,7 +303,8 @@ with st.sidebar:
     st.markdown("### 🤖 Agents")
     run_summarizer = st.checkbox("📋 Case Summarizer", value=True)
     run_explainer = st.checkbox("🔢 Calculation Explainer", value=True)
-    run_advisor = st.checkbox("⚡ Action Advisor", value=True)
+    run_advisor_lm = st.checkbox("⚡ Action Advisor (LM Studio)", value=True)
+    run_advisor_qwen = st.checkbox("⚡ Action Advisor (Qwen 14B)", value=True)
 
     st.markdown('<div class="styled-divider"></div>', unsafe_allow_html=True)
 
@@ -318,7 +320,8 @@ with st.sidebar:
         **Agents:**
         - 📋 **Summarizer** — Case overview
         - 🔢 **Explainer** — Calculation breakdown
-        - ⚡ **Advisor** — Risk & recommendations
+        - ⚡ **Advisor (LM Studio)** — Risk & recommendations
+        - ⚡ **Advisor (Qwen 14B)** — Risk & recommendations
 
         Built with Streamlit + Python.
         """)
@@ -513,8 +516,10 @@ with main_col:
             selected_agents.append("case_summarizer")
         if run_explainer:
             selected_agents.append("calculation_explainer")
-        if run_advisor:
-            selected_agents.append("action_advisor")
+        if run_advisor_lm:
+            selected_agents.append("action_advisor_lm")
+        if run_advisor_qwen:
+            selected_agents.append("action_advisor_qwen")
 
         if not selected_agents:
             st.warning("⚠️ Please select at least one agent in the sidebar.")
@@ -544,7 +549,8 @@ with main_col:
                     agent_models = {
                         "case_summarizer": model_summarizer,
                         "calculation_explainer": model_explainer,
-                        "action_advisor": model_advisor,
+                        "action_advisor_lm": model_advisor_lm,
+                        "action_advisor_qwen": model_advisor_qwen,
                     }
 
                     # Run agents with progress
@@ -599,9 +605,12 @@ with main_col:
         if "calculation_explainer" in agent_results:
             tab_names.append("🔢 Calculations")
             tab_keys.append("calculation_explainer")
-        if "action_advisor" in agent_results:
-            tab_names.append("⚡ Actions")
-            tab_keys.append("action_advisor")
+        if "action_advisor_lm" in agent_results:
+            tab_names.append("⚡ Actions (LM Studio)")
+            tab_keys.append("action_advisor_lm")
+        if "action_advisor_qwen" in agent_results:
+            tab_names.append("⚡ Actions (Qwen 14B)")
+            tab_keys.append("action_advisor_qwen")
 
         if tab_names:
             tabs = st.tabs(tab_names)
@@ -618,7 +627,8 @@ with main_col:
                         agent_display_names = {
                             "case_summarizer": "Case Summarizer Agent",
                             "calculation_explainer": "Calculation Explainer Agent",
-                            "action_advisor": "Action Advisor Agent",
+                            "action_advisor_lm": "Action Advisor Agent (LM Studio)",
+                            "action_advisor_qwen": "Action Advisor Agent (Qwen 14B)",
                         }
                         st.markdown(f"**🤖 {agent_display_names.get(key, key)}**")
                     with header_col2:
@@ -671,7 +681,11 @@ with main_col:
                         </div>
                         <div style="text-align: center;">
                             <div style="font-size: 1.5rem;">⚡</div>
-                            <div style="color: #94a3b8; font-size: 0.8rem; margin-top: 0.3rem;">Advise</div>
+                            <div style="color: #94a3b8; font-size: 0.8rem; margin-top: 0.3rem;">Advise (LM)</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 1.5rem;">⚡</div>
+                            <div style="color: #94a3b8; font-size: 0.8rem; margin-top: 0.3rem;">Advise (Qwen)</div>
                         </div>
                     </div>
                 </div>

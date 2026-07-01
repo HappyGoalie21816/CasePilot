@@ -32,7 +32,8 @@ class AgentOrchestrator:
         self.gateway = gateway
         self.agents = {
             "calculation_explainer": CalculationExplainerAgent(gateway),
-            "action_advisor": ActionAdvisorAgent(gateway),
+            "action_advisor_lm": ActionAdvisorAgent(gateway),
+            "action_advisor_qwen": ActionAdvisorAgent(gateway),
             "case_summarizer": CaseSummarizerAgent(gateway),
         }
 
@@ -84,7 +85,7 @@ class AgentOrchestrator:
         timing = {}
         start_total = time.time()
 
-        with ThreadPoolExecutor(max_workers=3) as executor:
+        with ThreadPoolExecutor(max_workers=4) as executor:
             # Submit all agents
             futures = {}
             start_times = {}
@@ -94,33 +95,26 @@ class AgentOrchestrator:
                     model = agent_models.get(name)
                     futures[executor.submit(self.agents[name].run, case_data, model=model)] = name
 
-            # Collect results as they complete
-            try:
-                for future in as_completed(futures, timeout=self.AGENT_TIMEOUT):
-                    agent_name = futures[future]
-                    agent_start = start_times[agent_name]
-                    try:
-                        result = future.result(timeout=self.AGENT_TIMEOUT)
-                        results[agent_name] = result
-                    except Exception as e:
-                        results[agent_name] = {
-                            "content": f"⚠️ **Agent '{agent_name}' failed:** {str(e)}",
-                            "agent": agent_name,
-                            "status": "error",
-                            "error": str(e),
-                        }
-                    timing[agent_name] = round(time.time() - agent_start, 2)
-            except TimeoutError:
-                for future, agent_name in futures.items():
-                    if agent_name not in results:
-                        results[agent_name] = {
-                            "content": f"⚠️ **Agent '{agent_name}' timed out after {self.AGENT_TIMEOUT} seconds.**",
-                            "agent": agent_name,
-                            "status": "error",
-                            "error": "TimeoutError",
-                        }
-                        timing[agent_name] = self.AGENT_TIMEOUT
-
+            # Collect results
+            from concurrent.futures import wait, ALL_COMPLETED
+            
+            done, not_done = wait(futures.keys(), timeout=None, return_when=ALL_COMPLETED)
+            
+            for future in done:
+                agent_name = futures[future]
+                agent_start = start_times[agent_name]
+                try:
+                    result = future.result()
+                    results[agent_name] = result
+                except Exception as e:
+                    results[agent_name] = {
+                        "content": f"⚠️ **Agent '{agent_name}' failed:** {str(e)}",
+                        "agent": agent_name,
+                        "status": "error",
+                        "error": str(e),
+                    }
+                timing[agent_name] = round(time.time() - agent_start, 2)
+                
         total_time = round(time.time() - start_total, 2)
 
         # Determine overall status
