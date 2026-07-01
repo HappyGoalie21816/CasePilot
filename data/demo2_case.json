@@ -1,0 +1,90 @@
+{
+  "MasterCase": {
+    "MasterCaseId": "1-S84HWRN",
+    "AttachedToNRP": "1-S84IW8T",
+    "Cases": [
+      {
+        "CaseNumber": "1-61441234830",
+        "Applicant": "PWC",
+        "CaseStage": "Case - Maintenance",
+        "CaseStatus": "Active",
+        "CaseSubStatus": "Perform Calculation",
+        "ServiceType": "Maintenance Direct",
+        "AnnualReviewDate": "07/04/2027",
+        "Contacts": [
+          {
+            "Role": "NRP",
+            "ContactId": "1-S84IW8T",
+            "FirstName": "Joffavw",
+            "LastName": "Burbavw",
+            "DateOfBirth": "01/01/1980",
+            "NINOStatus": "NINO Verified",
+            "EmploymentStatus": "Self Employed",
+            "Address": {
+              "StreetAddress": "17972 Sandrioghm New Court",
+              "City": "Cramlington",
+              "Country": "England",
+              "PostalCode": "LS10 1LG"
+            },
+            "FinancialDetails": {
+              "GrossAnnualIncome": "123456.00",
+              "AssessableWeeklyIncome": "2367.65",
+              "WeeklyLiabilityBeforeSharedCare": "237.09",
+              "FinalWeeklyLiability": "237.09",
+              "TotalAnnualLiability": "12362.55",
+              "NRPWeeklyCollectionCharge": "47.42",
+              "NRPAnnualReviewCollectionCharge": "2471.05",
+              "FlatRateLiabilityAmount": "7.00"
+            },
+            "CollectionDetails": {
+              "MethodOfPaymentFrom": "Maintenance Direct",
+              "PreferredPaymentDay": "Tuesday",
+              "StartingCollectionDate": "07/14/2026"
+            }
+          },
+          {
+            "Role": "PWC",
+            "ContactId": "1-S84IWW0",
+            "FirstName": "Joffavu",
+            "LastName": "Burbavu"
+          },
+          {
+            "Role": "QC",
+            "FirstName": "QCJofacym",
+            "LastName": "QCBurucym",
+            "DateOfBirth": "01/01/2015"
+          }
+        ],
+        "ServiceRequests": [
+          {
+            "SRNumber": "1-61441237575",
+            "Process": "Perform calculation",
+            "Area": "Case_setup",
+            "SubArea": "Initial",
+            "Status": "Not Started"
+          }
+        ],
+        "Correspondences": [
+          {
+            "ActivityId": "1-S84IYBR",
+            "Type": "Letter - Outbound (Auto)",
+            "TemplateLayoutName": "CMSL5521",
+            "Owner": "Leanne",
+            "Status": "Error Generating Document",
+            "EffectiveDate": "07/04/2026"
+          }
+        ],
+        "Calculations": {
+          "OGM": {
+            "RegularOGMAmount": "228.27",
+            "TotalWeeklyOGM": "237.74"
+          },
+          "NonOGM": {
+            "TotalNRPArrears": "0.00",
+            "CollectionChargeAmount": "9.48"
+          }
+        }
+      }
+    ]
+  }
+}

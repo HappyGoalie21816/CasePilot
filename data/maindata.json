@@ -1,0 +1,274 @@
+{
+  "MasterCase": {
+    "MasterCaseId": 184,
+    "Cases": [
+      {
+        "CaseNumber": 161441234830,
+        "Applicant": "PWC",
+        "CaseStage": "Case - Maintenance",
+        "CaseStatus": "Active",
+        "CaseSubStatus": "Perform Calculation",
+        "ServiceType": "Maintenance Direct",
+        "AnnualReviewDate": "07/04/2027",
+        "Contacts": [
+          {
+            "Role": "NRP",
+            "ContactId": "1-S84IW8T",
+            "FirstName": "Joffavw",
+            "LastName": "Burbavw",
+            "DateOfBirth": "01/01/1980",
+            "NINOStatus": "NINO Verified",
+            "EmploymentStatus": "Self Employed",
+            "Address": {
+              "StreetAddress": "17972 Sandrioghm New Court",
+              "City": "Cramlington",
+              "Country": "England",
+              "PostalCode": "LS10 1LG"
+            },
+            "FinancialDetails": {
+              "GrossAnnualIncome": "123456.00",
+              "AssessableWeeklyIncome": "2367.65",
+              "WeeklyLiabilityBeforeSharedCare": "237.09",
+              "FinalWeeklyLiability": "237.09",
+              "TotalAnnualLiability": "12362.55",
+              "NRPWeeklyCollectionCharge": "47.42",
+              "NRPAnnualReviewCollectionCharge": "2471.05",
+              "FlatRateLiabilityAmount": "7.00",
+              "grossWeeklyIncome": 1500.0,
+              "netWeeklyIncome": 1150.0,
+              "pensionContribution": 50.0,
+              "otherDeductions": 0.0,
+              "sharedCareNights": 0,
+              "relevantOtherChildren": 0
+            },
+            "CollectionDetails": {
+              "MethodOfPaymentFrom": "Maintenance Direct",
+              "PreferredPaymentDay": "Tuesday",
+              "StartingCollectionDate": "07/14/2026"
+            },
+            "fullName": "John Michael Smith",
+            "relationship": "Father"
+          },
+          {
+            "Role": "PWC",
+            "ContactId": "1-S84IWW0",
+            "FirstName": "Joffavu",
+            "LastName": "Burbavu",
+            "fullName": "Jane Elizabeth Doe",
+            "relationship": "Mother"
+          },
+          {
+            "Role": "QC",
+            "FirstName": "QCJofacym",
+            "LastName": "QCBurucym",
+            "DateOfBirth": "01/01/2015",
+            "fullName": "Alex James Smith",
+            "contactId": "CON-QC-001",
+            "age": 12,
+            "relationship": "Child"
+          }
+        ],
+        "ServiceRequests": [
+          {
+            "SRNumber": "1-61441237575",
+            "Process": "Perform calculation",
+            "Area": "Case_setup",
+            "SubArea": "Initial",
+            "Status": "Not Started",
+            "type": "Perform Calculation",
+            "createdDate": "2026-06-10T14:00:00Z",
+            "completedDate": "2026-06-10T14:30:00Z",
+            "result": "OGM recalculated with arrears recovery"
+          },
+          {
+            "srNumber": "SR-2026-05500",
+            "type": "Change of Circumstances",
+            "process": "Income Update",
+            "status": "Completed",
+            "createdDate": "2026-05-20T09:00:00Z",
+            "completedDate": "2026-05-20T11:00:00Z",
+            "result": "Income updated from HMRC feed"
+          }
+        ],
+        "Correspondences": [
+          {
+            "ActivityId": "1-S84IYBR",
+            "Type": "Letter - Outbound (Auto)",
+            "TemplateLayoutName": "CMSL5521",
+            "Owner": "Leanne",
+            "Status": "Error Generating Document",
+            "EffectiveDate": "07/04/2026"
+          }
+        ],
+        "Calculations": {
+          "OGM": {
+            "RegularOGMAmount": "228.27",
+            "TotalWeeklyOGM": "237.74"
+          },
+          "NonOGM": {
+            "TotalNRPArrears": "0.00",
+            "CollectionChargeAmount": "9.48"
+          },
+          "calculationType": "OGM_Assessment",
+          "calculationTimestamp": "2026-06-10T14:30:00Z",
+          "inputs": {
+            "nrpDailyLiability": 15.0,
+            "daysInCycle": 30.41,
+            "missedPaymentsCount": 1,
+            "arrearsBalance": 456.25,
+            "basicRate": 0.12,
+            "grossWeeklyIncome": 1500.0,
+            "weeklyLiability": 50.0
+          },
+          "outputs": {
+            "currentOGMAmount": 456.25,
+            "nonOGMArrearsRecovery": 456.25,
+            "totalMonthlySchedule": 912.5,
+            "collectionStartDate": "2024-02-01",
+            "nextPaymentDueDate": "2026-07-15"
+          }
+        },
+        "caseId": "1-CASE001",
+        "effectiveDate": "2024-01-15",
+        "methodOfPayment": {
+          "type": "Direct Debit",
+          "preferredPaymentDay": 15,
+          "bankName": "Barclays",
+          "accountLastFour": "7890",
+          "frequency": "Monthly"
+        },
+        "arrearsDetails": {
+          "totalArrearsBalance": 912.5,
+          "arrearsStartDate": "2026-04-15",
+          "missedPayments": [
+            {
+              "dueDate": "2026-04-15",
+              "amountDue": 456.25,
+              "amountPaid": 0.0,
+              "status": "Missed"
+            },
+            {
+              "dueDate": "2026-05-15",
+              "amountDue": 456.25,
+              "amountPaid": 456.25,
+              "status": "Paid"
+            }
+          ],
+          "paymentComplianceRate": 0.83,
+          "consecutiveMissedPayments": 0,
+          "lastPaymentDate": "2026-05-16",
+          "lastPaymentAmount": 456.25
+        }
+      },
+      {
+        "caseNumber": 202401235,
+        "caseId": "1-CASE002",
+        "applicant": "Sarah Louise Johnson",
+        "caseStage": "Ongoing",
+        "caseStatus": "Active",
+        "caseSubStatus": "Calculation Only",
+        "serviceType": "Calc Only",
+        "effectiveDate": "2024-06-01",
+        "contacts": [
+          {
+            "role": "NRP",
+            "fullName": "John Michael Smith",
+            "contactId": "CON-NRP-001",
+            "relationship": "Father",
+            "financialDetails": {
+              "grossWeeklyIncome": 1500.0,
+              "netWeeklyIncome": 1150.0,
+              "pensionContribution": 50.0,
+              "otherDeductions": 0.0,
+              "sharedCareNights": 2,
+              "relevantOtherChildren": 1
+            }
+          },
+          {
+            "role": "PWC",
+            "fullName": "Sarah Louise Johnson",
+            "contactId": "CON-PWC-002",
+            "relationship": "Mother"
+          },
+          {
+            "role": "QC",
+            "fullName": "Emma Rose Smith",
+            "contactId": "CON-QC-002",
+            "dateOfBirth": "2018-02-14",
+            "age": 8,
+            "relationship": "Child"
+          }
+        ],
+        "calculations": {
+          "calculationType": "OGM_Assessment",
+          "calculationTimestamp": "2026-06-12T10:00:00Z",
+          "inputs": {
+            "nrpDailyLiability": 10.52,
+            "daysInCycle": 30.41,
+            "missedPaymentsCount": 0,
+            "arrearsBalance": 0.0,
+            "basicRate": 0.12,
+            "grossWeeklyIncome": 1500.0,
+            "weeklyLiability": 36.82,
+            "sharedCareReduction": 0.143
+          },
+          "outputs": {
+            "currentOGMAmount": 320.0,
+            "nonOGMArrearsRecovery": 0.0,
+            "totalMonthlySchedule": 320.0,
+            "collectionStartDate": "2024-07-01",
+            "nextPaymentDueDate": "N/A - Calc Only"
+          }
+        },
+        "methodOfPayment": {
+          "type": "N/A - Calc Only",
+          "preferredPaymentDay": null,
+          "frequency": "N/A"
+        },
+        "arrearsDetails": {
+          "totalArrearsBalance": 0.0,
+          "missedPayments": [],
+          "paymentComplianceRate": 1.0,
+          "consecutiveMissedPayments": 0
+        },
+        "serviceRequests": [
+          {
+            "srNumber": "SR-2026-05700",
+            "type": "Perform Calculation",
+            "process": "OGM Assessment",
+            "status": "Completed",
+            "createdDate": "2026-06-12T09:30:00Z",
+            "completedDate": "2026-06-12T10:00:00Z",
+            "result": "OGM calculated with shared care reduction"
+          }
+        ]
+      }
+    ],
+    "id": "1-ABC123X",
+    "masterCaseNumber": 202400567,
+    "annualReviewDate": "2026-06-15",
+    "previousAnnualReviewDate": "2025-06-15",
+    "assessedWeeklyGrossIncome": 1250.5,
+    "grossWeeklyIncome": 1500.0,
+    "incomeSource": "Employment",
+    "liabilityAmount": 200.0,
+    "weeklyLiabilityAmount": 50.0,
+    "activeCasesCount": 2,
+    "activeAssessedCasesCount": 2,
+    "masterCaseWeeklyChildCareAmount": 75.0,
+    "weeklyNRPChildCareForCCCases": 45.0,
+    "masterCaseFullAnnualChildCareAmount": 3900.0,
+    "dailyNRPChildCareForCCCases": 6.43,
+    "nrpTotalWeeklyAmount": 45.0,
+    "nrp": {
+      "name": "John Michael Smith",
+      "contactId": "CON-NRP-001",
+      "dateOfBirth": "1985-03-22",
+      "nationalInsuranceNumber": "AB123456C",
+      "employmentStatus": "Employed",
+      "employer": "Acme Manufacturing Ltd",
+      "address": "14 Elm Street, Manchester, M1 4BT"
+    },
+    "ContactId": "1-S84IW8T"
+  }
+}
