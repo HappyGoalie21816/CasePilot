@@ -42,7 +42,7 @@ class CalculationExplainerAgent:
 
         if not cases:
             # If no cases array, treat the whole thing as a single case
-            return json.dumps(case_data, indent=2)
+            return json.dumps(case_data, separators=(',', ':'))
 
         for case in cases:
             case_info = {
@@ -62,7 +62,7 @@ class CalculationExplainerAgent:
                 "incomeSource": master.get("incomeSource"),
                 "cases": payload_parts,
             },
-            indent=2,
+            separators=(',', ':'),
         )
 
     def run(self, case_data: dict, model: Optional[str] = None) -> dict:
@@ -150,7 +150,7 @@ class CalculationExplainerAgent:
                     content = data["choices"][0].get("message", {}).get("content", "")
                     
                 if not content:
-                    content = f"Raw Response:\n```json\n{json.dumps(data, indent=2)}\n```"
+                    content = f"Raw Response:\n```json\n{json.dumps(data, separators=(',', ':'))}\n```"
 
                 return {
                     "content": content,

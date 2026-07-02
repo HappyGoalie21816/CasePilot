@@ -42,7 +42,7 @@ class CaseSummarizerAgent:
             user_message = (
                 "Summarize the following case data. Use ONLY the data provided. "
                 "Highlight any items requiring attention.\n\n"
-                + json.dumps(case_data, indent=2)
+                + json.dumps(case_data, separators=(',', ':'))
             )
             
             if model is not None and "qwen" in model.lower():
@@ -95,7 +95,7 @@ class CaseSummarizerAgent:
                     content = data["choices"][0].get("message", {}).get("content", "")
                     
                 if not content:
-                    content = f"Raw Response:\n```json\n{json.dumps(data, indent=2)}\n```"
+                    content = f"Raw Response:\n```json\n{json.dumps(data, separators=(',', ':'))}\n```"
 
                 return {
                     "content": content,

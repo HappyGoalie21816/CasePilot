@@ -1,39 +1,39 @@
 {
-  "MasterCase": {
-    "MasterCaseId": "1-184",
-    "Cases": [
+  "masterCase": {
+    "masterCaseNumber": "1-202400567",
+    "cases": [
       {
-        "CaseNumber": "1-61441234830",
-        "Applicant": "PWC",
-        "CaseStage": "Case - Maintenance",
-        "CaseStatus": "Active",
-        "CaseSubStatus": "Perform Calculation",
-        "ServiceType": "Maintenance Direct",
-        "AnnualReviewDate": "07/04/2027",
-        "Contacts": [
+        "caseNumber": "1-61441234830",
+        "applicant": "PWC",
+        "caseStage": "Case - Maintenance",
+        "caseStatus": "Active",
+        "caseSubStatus": "Perform Calculation",
+        "serviceType": "Maintenance Direct",
+        "annualReviewDate": "07/04/2027",
+        "contacts": [
           {
-            "Role": "NRP",
-            "ContactId": "1-S84IW8T",
-            "FirstName": "Joffavw",
-            "LastName": "Burbavw",
-            "DateOfBirth": "01/01/1980",
-            "NINOStatus": "NINO Verified",
-            "EmploymentStatus": "Self Employed",
-            "Address": {
-              "StreetAddress": "17972 Sandrioghm New Court",
-              "City": "Cramlington",
-              "Country": "England",
-              "PostalCode": "LS10 1LG"
+            "role": "NRP",
+            "contactId": "1-S84IW8T",
+            "firstName": "Joffavw",
+            "lastName": "Burbavw",
+            "dateOfBirth": "01/01/1980",
+            "nINOStatus": "NINO Verified",
+            "employmentStatus": "Self Employed",
+            "address": {
+              "streetAddress": "17972 Sandrioghm New Court",
+              "city": "Cramlington",
+              "country": "England",
+              "postalCode": "LS10 1LG"
             },
-            "FinancialDetails": {
-              "GrossAnnualIncome": "123456.00",
-              "AssessableWeeklyIncome": "2367.65",
-              "WeeklyLiabilityBeforeSharedCare": "237.09",
-              "FinalWeeklyLiability": "237.09",
-              "TotalAnnualLiability": "12362.55",
-              "NRPWeeklyCollectionCharge": "47.42",
-              "NRPAnnualReviewCollectionCharge": "2471.05",
-              "FlatRateLiabilityAmount": "7.00",
+            "financialDetails": {
+              "grossAnnualIncome": "123456.00",
+              "assessableWeeklyIncome": "2367.65",
+              "weeklyLiabilityBeforeSharedCare": "237.09",
+              "finalWeeklyLiability": "237.09",
+              "totalAnnualLiability": "12362.55",
+              "nRPWeeklyCollectionCharge": "47.42",
+              "nRPAnnualReviewCollectionCharge": "2471.05",
+              "flatRateLiabilityAmount": "7.00",
               "grossWeeklyIncome": 1500.0,
               "netWeeklyIncome": 1150.0,
               "pensionContribution": 50.0,
@@ -41,40 +41,40 @@
               "sharedCareNights": 0,
               "relevantOtherChildren": 0
             },
-            "CollectionDetails": {
-              "MethodOfPaymentFrom": "Maintenance Direct",
-              "PreferredPaymentDay": "Tuesday",
-              "StartingCollectionDate": "07/14/2026"
+            "collectionDetails": {
+              "methodOfPaymentFrom": "Maintenance Direct",
+              "preferredPaymentDay": "Tuesday",
+              "startingCollectionDate": "07/14/2026"
             },
             "fullName": "John Michael Smith",
             "relationship": "Father"
           },
           {
-            "Role": "PWC",
-            "ContactId": "1-S84IWW0",
-            "FirstName": "Joffavu",
-            "LastName": "Burbavu",
+            "role": "PWC",
+            "contactId": "1-S84IWW0",
+            "firstName": "Joffavu",
+            "lastName": "Burbavu",
             "fullName": "Jane Elizabeth Doe",
             "relationship": "Mother"
           },
           {
-            "Role": "QC",
-            "FirstName": "QCJofacym",
-            "LastName": "QCBurucym",
-            "DateOfBirth": "01/01/2015",
+            "role": "QC",
+            "firstName": "QCJofacym",
+            "lastName": "QCBurucym",
+            "dateOfBirth": "01/01/2015",
             "fullName": "Alex James Smith",
             "contactId": "CON-QC-001",
             "age": 12,
             "relationship": "Child"
           }
         ],
-        "ServiceRequests": [
+        "serviceRequests": [
           {
-            "SRNumber": "1-61441237575",
-            "Process": "Perform calculation",
-            "Area": "Case_setup",
-            "SubArea": "Initial",
-            "Status": "Not Started",
+            "sRNumber": "1-61441237575",
+            "process": "Perform calculation",
+            "area": "Case_setup",
+            "subArea": "Initial",
+            "status": "Not Started",
             "type": "Perform Calculation",
             "createdDate": "2026-06-10T14:00:00Z",
             "completedDate": "2026-06-10T14:30:00Z",
@@ -90,24 +90,24 @@
             "result": "Income updated from HMRC feed"
           }
         ],
-        "Correspondences": [
+        "correspondences": [
           {
-            "ActivityId": "1-S84IYBR",
-            "Type": "Letter - Outbound (Auto)",
-            "TemplateLayoutName": "CMSL5521",
-            "Owner": "Leanne",
-            "Status": "Error Generating Document",
-            "EffectiveDate": "07/04/2026"
+            "activityId": "1-S84IYBR",
+            "type": "Letter - Outbound (Auto)",
+            "templateLayoutName": "CMSL5521",
+            "owner": "Leanne",
+            "status": "Error Generating Document",
+            "effectiveDate": "07/04/2026"
           }
         ],
-        "Calculations": {
-          "OGM": {
-            "RegularOGMAmount": "228.27",
-            "TotalWeeklyOGM": "237.74"
+        "calculations": {
+          "oGM": {
+            "regularOGMAmount": "228.27",
+            "totalWeeklyOGM": "237.74"
           },
-          "NonOGM": {
-            "TotalNRPArrears": "0.00",
-            "CollectionChargeAmount": "9.48"
+          "nonOGM": {
+            "totalNRPArrears": "0.00",
+            "collectionChargeAmount": "9.48"
           },
           "calculationType": "OGM_Assessment",
           "calculationTimestamp": "2026-06-10T14:30:00Z",
@@ -245,7 +245,6 @@
       }
     ],
     "id": "1-ABC123X",
-    "masterCaseNumber": "1-202400567",
     "annualReviewDate": "2026-06-15",
     "previousAnnualReviewDate": "2025-06-15",
     "assessedWeeklyGrossIncome": 1250.5,
@@ -269,6 +268,6 @@
       "employer": "Acme Manufacturing Ltd",
       "address": "14 Elm Street, Manchester, M1 4BT"
     },
-    "ContactId": "1-S84IW8T"
+    "contactId": "1-S84IW8T"
   }
 }

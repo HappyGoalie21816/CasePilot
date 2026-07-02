@@ -283,32 +283,46 @@ with st.sidebar:
     st.markdown("### ⚙️ Configuration")
     st.markdown('<div class="styled-divider"></div>', unsafe_allow_html=True)
 
-    # Model Configuration
-    st.markdown("### 🧠 Models")
-    model_summarizer_lm = st.text_input("Case Summarizer Model (LM Studio)", value=LLM_MODEL)
-    model_summarizer_qwen = st.text_input("Case Summarizer Model (Qwen 14B)", value="qwen-14b")
-    model_explainer_lm = st.text_input("Calculation Explainer Model (LM Studio)", value=LLM_MODEL)
-    model_explainer_qwen = st.text_input("Calculation Explainer Model (Qwen 14B)", value="qwen-14b")
-    model_advisor_lm = st.text_input("Action Advisor Model (LM Studio)", value=LLM_MODEL)
-    model_advisor_qwen = st.text_input("Action Advisor Model (Qwen 14B)", value="qwen-14b")
+    # Agent selection
+    st.markdown("### 🤖 Select Agents")
+    
+    st.markdown("**📋 Case Summarizer**")
+    col1, col2 = st.columns(2)
+    with col1: run_summarizer_lm = st.toggle("LM Studio", value=True, key="sum_lm")
+    with col2: run_summarizer_qwen = st.toggle("Qwen 14B", value=True, key="sum_qwen")
+    
+    st.markdown("**🔢 Calc Explainer**")
+    col1, col2 = st.columns(2)
+    with col1: run_explainer_lm = st.toggle("LM Studio", value=True, key="exp_lm")
+    with col2: run_explainer_qwen = st.toggle("Qwen 14B", value=True, key="exp_qwen")
 
-    st.markdown(f"""
-    <div class="info-box">
-        <strong>API Endpoint:</strong><br>
-        <code>{LLM_API_URL.split('//')[1].split('/')[0]}</code>
-    </div>
-    """, unsafe_allow_html=True)
+    st.markdown("**⚡ Action Advisor**")
+    col1, col2 = st.columns(2)
+    with col1: run_advisor_lm = st.toggle("LM Studio", value=True, key="adv_lm")
+    with col2: run_advisor_qwen = st.toggle("Qwen 14B", value=True, key="adv_qwen")
 
     st.markdown('<div class="styled-divider"></div>', unsafe_allow_html=True)
 
-    # Agent selection
-    st.markdown("### 🤖 Agents")
-    run_summarizer_lm = st.checkbox("📋 Case Summarizer (LM Studio)", value=True)
-    run_summarizer_qwen = st.checkbox("📋 Case Summarizer (Qwen 14B)", value=True)
-    run_explainer_lm = st.checkbox("🔢 Calculation Explainer (LM Studio)", value=True)
-    run_explainer_qwen = st.checkbox("🔢 Calculation Explainer (Qwen 14B)", value=True)
-    run_advisor_lm = st.checkbox("⚡ Action Advisor (LM Studio)", value=True)
-    run_advisor_qwen = st.checkbox("⚡ Action Advisor (Qwen 14B)", value=True)
+    # Advanced Models Configuration
+    with st.expander("⚙️ Advanced Model Settings"):
+        st.markdown("**Case Summarizer Models**")
+        model_summarizer_lm = st.text_input("LM Studio", value=LLM_MODEL, key="ms_lm")
+        model_summarizer_qwen = st.text_input("Qwen 14B", value="qwen-14b", key="ms_qwen")
+        
+        st.markdown("**Calc Explainer Models**")
+        model_explainer_lm = st.text_input("LM Studio", value=LLM_MODEL, key="me_lm")
+        model_explainer_qwen = st.text_input("Qwen 14B", value="qwen-14b", key="me_qwen")
+        
+        st.markdown("**Action Advisor Models**")
+        model_advisor_lm = st.text_input("LM Studio", value=LLM_MODEL, key="ma_lm")
+        model_advisor_qwen = st.text_input("Qwen 14B", value="qwen-14b", key="ma_qwen")
+        
+        st.markdown(f"""
+        <div class="info-box" style="margin-top: 1rem;">
+            <strong>API Endpoint:</strong><br>
+            <code>{LLM_API_URL.split('//')[1].split('/')[0]}</code>
+        </div>
+        """, unsafe_allow_html=True)
 
     st.markdown('<div class="styled-divider"></div>', unsafe_allow_html=True)
 

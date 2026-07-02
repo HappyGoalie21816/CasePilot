@@ -76,7 +76,7 @@ class ActionAdvisorAgent:
                 "activeCases": master.get("activeCasesCount"),
                 "cases": payload_parts,
             },
-            indent=2,
+            separators=(',', ':'),
         )
 
     def run(self, case_data: dict, model: Optional[str] = None) -> dict:
@@ -122,13 +122,13 @@ class ActionAdvisorAgent:
                         final_query += f"--- Example {i+1} ---\nUser: {example.get('user', '')}\nAssistant: {example.get('assistant', '')}\n\n"
                 
                 final_query += f"User:\n{query}"
-                print(final_query)
                 
                 payload = {
                     "model": "qwen_14b_tuned",
                     "query": final_query,
                     "use_rag": True
                 }
+                print(final_query)
 
                 try:
                     response = requests.post(url, headers=headers, json=payload, timeout=None)
@@ -162,7 +162,7 @@ class ActionAdvisorAgent:
                     content = data["choices"][0].get("message", {}).get("content", "")
                     
                 if not content:
-                    content = f"Raw Response:\n```json\n{json.dumps(data, indent=2)}\n```"
+                    content = f"Raw Response:\n```json\n{json.dumps(data, separators=(',', ':'))}\n```"
 
                 return {
                     "content": content,
