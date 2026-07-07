@@ -209,7 +209,7 @@ _[2-3 sentence explanation of why this risk level was assigned, referencing spec
 
 • **Option B: Instalment Plan**
   - **Proposed Schedule:** [amount per period based on income] over [number of months]
-  - **Caseworker Talking Point:** [How to negotiate this effectively]
+  - **Caseworker Talking Point:** [[How to present this to the NRP, How to negotiate this effectively]
   - **Pros/Cons:** [Brief analysis]
 
 • **Option C: Increased Regular Payment**
